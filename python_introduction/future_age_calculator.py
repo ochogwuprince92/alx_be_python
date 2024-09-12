@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 # Prompt the user for their current age
 current_age = int(input("How old are you? "))
 
