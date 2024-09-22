@@ -30,6 +30,7 @@ def generate_reminder(task, priority, time_bound):
 def main():
     task, priority, time_bound = get_user_input()
     reminder = generate_reminder(task, priority, time_bound)
+    # Print the reminder message
     print(reminder)
 
 if __name__ == "__main__":
