@@ -1,37 +1,28 @@
-def get_user_input():
-    # Prompt for a single task
-    task = input("Enter your task: ")
-    # Prompt for the task’s priority
-    priority = input("Priority (high/medium/low): ").lower()
-    # Ask if the task is time-bound
-    time_bound = input("Is it time-bound? (yes/no): ").lower() == 'yes'
-    return task, priority, time_bound
+# Get the task details from the user
+task = input("Enter your task: ")
+priority = input("Priority (high/medium/low): ").lower()
+time_bound = input("Is it time-bound? (yes/no): ").lower()
 
-def generate_reminder(task, priority, time_bound):
-    match priority:
-        case "high":
-            if time_bound:
-                return f"Reminder: '{task}' is a high priority task that requires immediate attention today!"
-            else:
-                return f"Reminder: '{task}' is a high priority task. Consider completing it when you have free time."
-        case "medium":
-            if time_bound:
-                return f"Reminder: '{task}' is a medium priority task that requires immediate attention today!"
-            else:
-                return f"Reminder: '{task}' is a medium priority task. You can complete it later."
-        case "low":
-            if time_bound:
-                return f"Reminder: '{task}' is a low priority task that requires immediate attention today!"
-            else:
-                return f"Reminder: '{task}' is a low priority task. Consider completing it when you have free time."
-        case _:
-            return "Priority not recognized. Please enter high, medium, or low."
+# Match case statement to handle the priority level
+match priority:
+    case 'high':
+        priority_message = f"'{task}' is a high priority task"
+    case 'medium':
+        priority_message = f"'{task}' is a medium priority task"
+    case 'low':
+        priority_message = f"'{task}' is a low priority task"
+    case _:
+        print("Invalid priority. Please enter 'high', 'medium', or 'low'.")
+        exit()
 
-def main():
-    task, priority, time_bound = get_user_input()
-    reminder = generate_reminder(task, priority, time_bound)
-    # Print the reminder message
-    print(reminder)
+# If statement to modify the reminder based on time sensitivity
+if time_bound == 'yes':
+    time_message = "and requires immediate attention today!"
+elif time_bound == 'no':
+    time_message = "but is not time-bound."
+else:
+    print("Invalid time-bound response. Please enter 'yes' or 'no'.")
+    exit()
 
-if __name__ == "__main__":
-    main()
+# Print the final customized reminder
+print(f"Reminder: {priority_message} {time_message}")
