@@ -25,7 +25,7 @@ class Book:
         return f"Book('{self.title}', '{self.author}', {self.year})"
 
 # Create an instance of the Book class for testing purposes
-book1 = Book("Gifts of the Spirit", "Derek Prince", 1983)
+book1 = Book("1984", "George Orwell", 1949)
 
 # Call the __str__ method to get a user-friendly string representation of the book
 book_str = str(book1)
